@@ -25,6 +25,9 @@
  *    -32700  Parse error
  */
 
+// Required for Cloudflare Pages / Workers edge runtime
+export const runtime = "edge";
+
 type JsonRpcRequest = {
   jsonrpc: string;
   method: string;

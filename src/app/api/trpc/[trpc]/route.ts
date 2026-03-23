@@ -22,6 +22,9 @@
  *  fetch(), JSON.parse(), or route matching manually.
  */
 
+// Required for Cloudflare Pages / Workers edge runtime
+export const runtime = "edge";
+
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { appRouter } from "@/server/routers/_app";
 import { createContext } from "@/server/trpc";
