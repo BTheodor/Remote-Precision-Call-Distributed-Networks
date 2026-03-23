@@ -1,14 +1,14 @@
 /**
  * ========================================
- *  Root Router — Serviciul RPC principal
+ *  Root Router — Main RPC Service
  * ========================================
  *
- *  Acest fișier combină toate sub-router-urile într-un singur "serviciu".
+ *  This file combines all sub-routers into a single "service".
  *
- *  Echivalent în gRPC: ar fi un .proto file cu mai multe `service` blocks.
- *  În tRPC: importăm router-uri și le compunem într-un arbore de proceduri.
+ *  gRPC equivalent: a .proto file with multiple `service` blocks.
+ *  In tRPC: we import routers and compose them into a procedure tree.
  *
- *  Structura finală:
+ *  Final structure:
  *  └── appRouter
  *      ├── math
  *      │   ├── remoteSum        (query)
@@ -23,8 +23,8 @@
  *          ├── delete           (mutation)
  *          └── toggleComplete   (mutation)
  *
- *  IMPORTANT: `AppRouter` type este exportat → acesta este "IDL-ul" tRPC.
- *  Clientul importă DOAR acest type (nu codul!) pentru full type-safety.
+ *  IMPORTANT: `AppRouter` type is exported → this is the tRPC "IDL".
+ *  The client imports ONLY this type (not the code!) for full type-safety.
  */
 
 import { router } from "../trpc";
@@ -36,6 +36,6 @@ export const appRouter = router({
   todo: todoRouter,
 });
 
-// Exportă TYPE-ul router-ului → ACESTA este "contractul" (IDL)
-// Clientul îl importă pentru type inference automată
+// Export the router TYPE → this IS the "contract" (IDL)
+// The client imports it for automatic type inference
 export type AppRouter = typeof appRouter;

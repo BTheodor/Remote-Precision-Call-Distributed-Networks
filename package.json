@@ -1,7 +1,7 @@
 {
   "name": "my-rpc-app",
   "version": "1.0.0",
-  "description": "RPC Implementation cu tRPC + Next.js — Proiect educațional",
+  "description": "RPC Implementation with tRPC + Next.js — Distributed Networks",
   "private": true,
   "scripts": {
     "dev": "next dev",

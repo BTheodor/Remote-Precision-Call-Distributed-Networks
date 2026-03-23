@@ -3,23 +3,23 @@
  *  API Route Handler — "RPC Runtime" (transport layer)
  * ========================================
  *
- *  MAPARE PE TEORIA RPC:
- *  ─────────────────────
- *  Acest fișier = "RPC Runtime" din ambele părți (client + server)
+ *  MAPPING TO RPC THEORY:
+ *  ──────────────────────
+ *  This file = "RPC Runtime" on both sides (client + server)
  *
- *  Ce face:
- *  1. Primește HTTP requests de la Client Runtime (fetch API)
- *  2. Le decodează (unmarshalling) prin tRPC
- *  3. Le routează către procedura corectă (math.remoteSum, todo.create, etc.)
- *  4. Returnează rezultatul ca HTTP response (marshalling)
+ *  What it does:
+ *  1. Receives HTTP requests from the Client Runtime (fetch API)
+ *  2. Decodes them (unmarshalling) via tRPC
+ *  3. Routes to the correct procedure (math.remoteSum, todo.create, etc.)
+ *  4. Returns the result as an HTTP response (marshalling)
  *
  *  URL pattern: /api/trpc/[trpc]
- *  Exemple:
+ *  Examples:
  *  - GET  /api/trpc/math.remoteSum?input={"a":5,"b":10}
  *  - POST /api/trpc/todo.create  body: {"title":"Learn RPC"}
  *
- *  tRPC gestionează tot acest transport AUTOMAT — nu scrii manual
- *  fetch(), JSON.parse(), sau route matching.
+ *  tRPC manages all this transport AUTOMATICALLY — you don't write
+ *  fetch(), JSON.parse(), or route matching manually.
  */
 
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
@@ -33,7 +33,7 @@ const handler = (req: Request) =>
     router: appRouter,
     createContext: () => createContext(),
 
-    // Error formatting — personalizăm erorile trimise clientului
+    // Error formatting — customize errors sent to the client
     onError: ({ error, path }) => {
       console.error(`[RPC ERROR] ${path}:`, error.message);
     },

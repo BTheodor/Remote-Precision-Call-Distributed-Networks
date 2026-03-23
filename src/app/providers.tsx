@@ -1,17 +1,17 @@
 /**
  * ========================================
- *  Provider — Configurare "RPC Runtime" (client-side)
+ *  Provider — "RPC Runtime" Configuration (client-side)
  * ========================================
  *
  *  httpBatchLink = transport layer
- *  Combină mai multe RPC calls într-un singur HTTP request!
+ *  Combines multiple RPC calls into a single HTTP request!
  *
- *  Ex: dacă pagina apelează simultan:
+ *  Example: if the page simultaneously calls:
  *  - trpc.math.getServerInfo.useQuery()
  *  - trpc.todo.list.useQuery()
  *
- *  → tRPC le combină într-UN SINGUR request HTTP (batching)
- *  → Reduce latența și conexiunile de rețea
+ *  → tRPC combines them into ONE HTTP request (batching)
+ *  → Reduces latency and network connections
  */
 
 "use client";
@@ -26,8 +26,8 @@ export function TRPCProvider({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient({
     defaultOptions: {
       queries: {
-        // Retry logic — important pentru RPC!
-        // Din curs: "networks fail, clients often retry calls"
+        // Retry logic — important for RPC!
+        // "networks fail, clients often retry calls"
         retry: 2,
         retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 10000),
       },
