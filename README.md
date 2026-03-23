@@ -103,24 +103,6 @@ This project is suitable for demonstrating understanding of:
 - service-oriented interaction models
 - educational software presentation
 
-## Screenshots
-
-You can add project screenshots here for portfolio presentation.
-
-Suggested images:
-
-- homepage overview
-- RPC architecture section
-- JSON-RPC interactive demo
-- XML-RPC or Thrift reference section
-
-Example markdown:
-
-```md
-![Application Overview](./screenshots/overview.png)
-![JSON-RPC Demo](./screenshots/json-rpc-demo.png)
-```
-
 ## Why This Project Matters
 
 This repository is not just a frontend exercise. It is a technical learning artifact that translates distributed systems theory into a form that is easier to demonstrate, discuss, and evaluate. It is well suited for coursework presentation, GitHub portfolios, and interviews where system communication concepts need to be explained clearly.
